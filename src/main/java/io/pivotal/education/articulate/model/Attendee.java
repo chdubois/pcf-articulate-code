@@ -1,12 +1,12 @@
 package io.pivotal.education.articulate.model;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
 @EqualsAndHashCode(exclude = "id")
-@Builder
+@NoArgsConstructor
 public class Attendee {
 
   private Long id;
@@ -15,5 +15,7 @@ public class Attendee {
 
   private String address, city, state, zipCode;
   private String phoneNumber, emailAddress;
+  
+  
 
 }
