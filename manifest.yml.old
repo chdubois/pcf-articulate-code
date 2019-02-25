@@ -1,10 +1,6 @@
 applications:
 - name: articulate
-  disk_quota: 1G
   instances: 1
   memory: 1G
   path: target/articulate-1.0.jar
   random-route: true
-  services:
-  - rabbitmq
-  stack: cflinuxfs3
