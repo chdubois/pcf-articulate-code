@@ -66,12 +66,12 @@
     </dependency>
     <dependency>
       <groupId>org.webjars.npm</groupId>
-      <artifactId>morrisjs</artifactId>
+      <artifactId>morris</artifactId>
       <version>0.5.0</version>
     </dependency>
     <dependency>
       <groupId>org.webjars.npm</groupId>
-      <artifactId>raphaeljs</artifactId>
+      <artifactId>raphael</artifactId>
       <version>2.2.7</version>
     </dependency>
 
