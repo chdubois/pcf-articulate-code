@@ -66,7 +66,7 @@
     </dependency>
     <dependency>
       <groupId>org.webjars.npm</groupId>
-      <artifactId>morris</artifactId>
+      <artifactId>morris.js</artifactId>
       <version>0.5.0</version>
     </dependency>
     <dependency>
