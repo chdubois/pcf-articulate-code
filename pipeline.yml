@@ -19,7 +19,7 @@ resources:
     #skip_cert_check: true
 
 jobs:
-- name: build
+- name: articulate 
   public: true
   plan:
   - get: source-code
