@@ -24,7 +24,7 @@ resources:
     access_key_id: {{aws-access-key-id}}
     secret_access_key: {{aws-secret-access-key}}
 jobs:
-- name: articulate-job
+- name: articulate-build
   public: true
   plan:
   - get: github
