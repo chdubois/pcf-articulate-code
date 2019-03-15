@@ -2,8 +2,8 @@
 
 set -e -x
 
-cd source-code
+cd github
   ./mvnw clean package
 cd ..
 
-cp source-code/target/articulate-1.0.jar build-output/.
+cp github/target/articulate-*.jar build-output/articulate.jar

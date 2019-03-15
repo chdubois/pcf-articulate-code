@@ -1,14 +1,12 @@
-# Copy pipeline-secrets-example.yml to pipeline-secrets.yml and update with your values then run:
-# fly -t ci set-pipeline -p maven-cf-simple -c pipeline.yml -l pipeline-secrets.yml
 ---
 resources:
-- name: source-code
+- name: github
   type: git
   source:
     uri: https://github.com/chdubois/pcf-articulate-code.git 
     branch: master
 
-- name: cf
+- name: cf-push 
   type: cf
   source:
     api: {{cf-api}}
@@ -17,16 +15,25 @@ resources:
     organization: {{cf-organization}}
     space: {{cf-space}}
     #skip_cert_check: true
-
+- name: s3-release-bucket
+  type: s3
+  source:
+    bucket: pcf-concourse-release-bucket
+    region_name: us-east-1
+    access_key_id: {{aws-access-key-id}}
+    secret_access_key: {{aws-secret-access-key}}
 jobs:
-- name: articulate 
+- name: articulate-job
   public: true
   plan:
-  - get: source-code
+  - get: github
     trigger: true
-  - task: build
-    file: source-code/ci/build.yml
-  - put: cf
+  - task: build-ui
+    file: github/ci/build.yml
+  - put: s3-release-bucket
     params:
-      manifest: source-code/manifest.yml
-      path: build-output/articulate-1.0.jar
+      file: build-output/articulate.jar
+  - put: cf-push
+    params:
+      manifest: github/manifest.yml
+      path: build-output/articulate.jar
