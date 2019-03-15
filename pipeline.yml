@@ -19,6 +19,7 @@ resources:
   type: s3
   source:
     bucket: pcf-concourse-release-bucket
+    versioned_file: articulate.jar
     region_name: us-east-1
     access_key_id: {{aws-access-key-id}}
     secret_access_key: {{aws-secret-access-key}}
@@ -33,6 +34,7 @@ jobs:
   - put: s3-release-bucket
     params:
       file: build-output/articulate.jar
+      acl: public-read
   - put: cf-push
     params:
       manifest: github/manifest.yml
