@@ -6,5 +6,5 @@ applications:
   path: target/articulate-1.0.jar
   random-route: true
   services:
-  - rabbitmq
+  - attendee-service
   stack: cflinuxfs3
