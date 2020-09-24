@@ -7,4 +7,5 @@ applications:
   random-route: true
   services:
   - attendee-service
+  - rabbitmq
   stack: cflinuxfs3
